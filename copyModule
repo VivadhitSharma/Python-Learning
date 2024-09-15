@@ -1,0 +1,76 @@
+print()
+# using shallow copy module
+import copy
+
+old_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+new_list = copy.copy(old_list)
+print("id of old list is :", id(old_list))
+print("id of new list is :", id(new_list), "new list :", new_list)
+
+# case:1
+print("\n")
+
+list1 = [1, 2]
+list2 = [3, 4]
+old_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9], list1, list2]
+new_list = copy.copy(old_list)
+old_list.append([10, 11])
+new_list[3].append([3, 3])
+print("old list : ", old_list)
+print("new list : ", new_list)
+
+print("\n")
+
+# case:2 changing the content of old list. changing also appear in new list.
+
+old_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+new_list = copy.copy(old_list)
+print("old list : ", old_list)
+print("new list : ", new_list)
+old_list[0][0] = "pc"
+print("old list : ", old_list)
+print("new list : ", new_list)
+
+print("\n")
+
+# shallow copy of list constructor.
+list_4 = ["m", "n", "o"]
+list_5 = list(list_4)
+list_4.append(10)
+print(list_4)
+print(list_5)
+list_4[0] = "next"
+print(list_4)
+print(list_5)
+
+print("\n")
+
+# reference or id (address) nexted list
+
+xs = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+ys = list(xs)
+print(id(xs), "old list", xs)
+print(id(ys), "new list", ys)
+xs.append([100, 200])
+print("old list", xs)
+print("new list", ys)
+
+print("\n")
+
+# modification
+xs = [[2, 3, 4], [5, 5, 6], [8, 4, 2]]
+ys = list(xs)
+xs[1][0] = "laptop"
+print("old list : ", xs)
+print("new list : ", ys)
+
+print("\n")
+
+# equal to == operator
+
+old_list = [["laptop", 3, 4], [5, 5, 6], [8, 4, 2]]
+new_list = [["laptop", 8, 5], [2, 3, 8], [1, 5, 8]]
+
+print(old_list == new_list)
+
+print("\n")
